@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "download-cleaner"
+name = "downloads-cleaner"
 version = "0.1.0"
 description = ""
 authors = ["Danylo Zdoryk <danylozdoryk1@gmail.com>"]
