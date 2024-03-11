@@ -10,7 +10,11 @@
          ".svg",
          ".webp",
          ".ico",
-	 ".drawio"
+         ".drawio",
+         ".heic",
+         ".psd",
+         ".fig",
+         ".lottie"
       ],
       "video":[
          ".mp4",
@@ -68,9 +72,9 @@
          ".csv",
          ".xml",
          ".json",
-	 ".tex",
-	 ".parquet",
-	 ".md"
+         ".tex",
+         ".parquet",
+         ".md"
       ],
       "archives":[
          ".zip",
@@ -93,7 +97,8 @@
          ".hdt",
          ".hds",
          ".hda",
-         ".hdp"
+         ".hdp",
+         ".tbz2"
       ],
       "executables":[
          ".exe",
@@ -128,7 +133,9 @@
          ".psd1",
          ".ps1xml",
          ".pssc",
-         ".psc1"
+         ".psc1",
+         ".pkg",
+         ".app"
       ],
       "fonts":[
          ".ttf",
@@ -193,8 +200,8 @@
          ".yml",
          ".htm",
          ".xhtml",
-	 ".tf",
-	 "ipynb"
+         ".tf",
+         "ipynb"
       ]
    }
 }
