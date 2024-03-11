@@ -20,13 +20,26 @@ You can make additional mapping such as adding new folders and file types using 
 5. Now you can run `clean-downloads.py` from anywhere in the command line
 > Note: If you are not able to just run `clean-downloads.py` then you can also try running `python clean-downloads.py`
 
-### MacOS and Linux
+### Linux
 1. Clone the repository to `~/Downloads/`
 2. Open terminal
 3. Run `nano ~/.bash_profile`
 4. export PATH="~/Downloads/downloads-folder-cleaner/downloads-cleaner/clean-downloads.py:$PATH"
 5. Save and close the file. 
 6. To apply the changes, you can either restart your terminal or source the profile script with the command source ~/.bash_profile (or the relevant file for your shell).
+7. Now you can run `clean-downloads.py` from anywhere in the command line
+8. If you are not able to just run `clean-downloads.py` then you can also try running `python clean-downloads.py`
+> Note: You are able to place this repo anywhere on your system but make sure to provide the correct path in the `~/.bash_profile` file.
+
+
+### MacOS
+
+1. Clone the repository to `~/Downloads/`
+2. Open terminal
+3. Run `nano ~/.bash_profile`
+4. export PATH="$HOME/Downloads/downloads-folder-cleaner/downloads-cleaner:$PATH"
+5. Save and close the file. 
+6. To apply the changes, you can either restart your terminal or source the profile script with the command `source ~/.bash_profile` (or the relevant file for your shell).
 7. Now you can run `clean-downloads.py` from anywhere in the command line
 8. If you are not able to just run `clean-downloads.py` then you can also try running `python clean-downloads.py`
 > Note: You are able to place this repo anywhere on your system but make sure to provide the correct path in the `~/.bash_profile` file.

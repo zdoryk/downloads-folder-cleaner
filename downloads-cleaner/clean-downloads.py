@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 import platform
 import os
 import json
@@ -12,8 +13,11 @@ def get_download_path() -> str:
     download_path = None
     if system_name == "Windows":
         download_path = os.path.join(os.environ['USERPROFILE'], 'Downloads')
-    elif system_name == "Linux" or system_name == "Darwin":
+    elif system_name == "Darwin":
+        download_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+    else:
         download_path = os.path.join(os.environ['~'], 'Downloads')
+
     os.chdir(download_path)
     print(f"Download path: {download_path}")
     return download_path
@@ -38,11 +42,20 @@ def clean_folder(download_path: str, dirs_mapping: dict) -> None:
     :return: None
     """
     for file in os.listdir(download_path):
-        if os.path.isfile(file):
+        full_file_path = os.path.join(download_path, file)
+        if os.path.isfile(full_file_path):
             for folder, extensions in dirs_mapping.items():
+                target_folder_path = os.path.join(download_path, folder)
+                # Ensure the target directory exists
+                os.makedirs(target_folder_path, exist_ok=True)
+
                 for ext in extensions:
                     if file.endswith(ext) or file.endswith(ext.upper()):
-                        os.rename(file, os.path.join(folder, file))
+                        target_file_path = os.path.join(target_folder_path, file)
+                        try:
+                            os.rename(full_file_path, target_file_path)
+                        except Exception as e:
+                            print(f"An error occurred while trying move the file: {e}")
                         break
 
 
@@ -51,6 +64,10 @@ def main():
     Main function
     :return:
     """
+    script_path = os.path.abspath(__file__)
+    script_dir = os.path.dirname(script_path)
+    os.chdir(script_dir)
+
     try:
         settings = json.loads(open('settings.json').read())
     except FileNotFoundError:
@@ -59,7 +76,6 @@ def main():
 
     try:
         download_path = get_download_path()
-        print(f"Download path: {download_path}")
     except Exception as e:
         print(f"An error occurred while trying to get the download path: {e}")
         return
